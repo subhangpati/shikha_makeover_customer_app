@@ -3,7 +3,7 @@ import 'package:shikha_makeover_customer_app/components/NavigationBar.dart';
 import 'package:shikha_makeover_customer_app/components/SideDrawer.dart';
 import 'package:shikha_makeover_customer_app/components/homeImageCarousel.dart';
 import 'package:shikha_makeover_customer_app/components/getIndicator.dart';
-import 'package:shikha_makeover_customer_app/components/serviceCards.dart';
+import 'package:shikha_makeover_customer_app/components/homeServiceCards.dart';
 import 'package:shikha_makeover_customer_app/components/offersCarousel.dart';
 import 'package:shikha_makeover_customer_app/constant.dart';
 import 'package:shikha_makeover_customer_app/components/guideLinesBar.dart';
