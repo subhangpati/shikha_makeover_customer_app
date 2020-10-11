@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shikha_makeover_customer_app/package_model/classic_model.dart';
+import 'package:shikha_makeover_customer_app/screens/DateNTime.dart';
 
 class ClassicPackage extends StatefulWidget {
   @override
@@ -161,7 +162,8 @@ class _ClassicPackageState extends State<ClassicPackage> {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => DateAndTime())),
             child: Container(
               color: Color(0xffD7352E),
               width: MediaQuery.of(context).size.width,
