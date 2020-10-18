@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:shikha_makeover_customer_app/components/NavigationBar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shikha_makeover_customer_app/components/SideDrawer.dart';
+import 'package:shikha_makeover_customer_app/components/guideLinesBar.dart';
+// import 'package:shikha_makeover_customer_app/components/SideDrawer.dart';
 import 'package:shikha_makeover_customer_app/components/homeImageCarousel.dart';
 import 'package:shikha_makeover_customer_app/components/getIndicator.dart';
-import 'package:shikha_makeover_customer_app/components/homeServiceCards.dart';
 import 'package:shikha_makeover_customer_app/components/offersCarousel.dart';
+
+import 'package:shikha_makeover_customer_app/model/home_service_model.dart';
+
 import 'package:shikha_makeover_customer_app/constant.dart';
-import 'package:shikha_makeover_customer_app/components/guideLinesBar.dart';
-import 'package:shikha_makeover_customer_app/screens/Services.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Color(0xffFFFAFA),
+        scaffoldBackgroundColor: Color(0xffFFFAFA),
+      ),
       home: homePage(),
     );
   }
@@ -29,152 +35,171 @@ class _homePageState extends State<homePage> {
   PageController _pageController = PageController(
     initialPage: 0,
   );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.grey),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.search,
-            ),
-            onPressed: null,
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.shopping_cart,
-            ),
-            onPressed: null,
-          ),
-        ],
-      ),
-      body: ListView(
-        children: [
-          Container(
-            height: 180,
-            //color: Colors.orange,
-            child: PageView(
-              controller: _pageController,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            floating: true,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                HomeImageCarousel(
-                  img: 'scroll1',
+                Image.asset(
+                  'asset/images/Logo/LogoAndMonolog/SM.png',
+                  scale: 6,
                 ),
-                HomeImageCarousel(
-                  img: 'scroll2',
-                ),
-                HomeImageCarousel(
-                  img: 'scroll3',
-                ),
-                HomeImageCarousel(
-                  img: 'scroll4',
-                ),
-                HomeImageCarousel(
-                  img: 'scroll15',
-                ),
+                Text(
+                  'Shikha Makeover',
+                  style: TextStyle(fontFamily: 'inter'),
+                )
               ],
-              onPageChanged: (value) => {setCurrentPage(value)},
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-              5,
-              (index) => GetIndicator(
-                pageNo: index,
-                cPageNo: currentPage,
+            actions: [
+              IconButton(
+                icon: Icon(
+                  FontAwesomeIcons.search,
+                  color: Colors.black,
+                  size: 20,
+                ),
+                onPressed: null,
               ),
-            ),
+              IconButton(
+                icon: Icon(
+                  FontAwesomeIcons.shoppingBag,
+                  color: Colors.black,
+                ),
+                onPressed: null,
+              ),
+            ],
           ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            color: Colors.amberAccent,
-            height: 300,
-            padding: EdgeInsets.symmetric(vertical: 20),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10, bottom: 5),
-                  child: Row(
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Container(
+                  height: MediaQuery.of(context).size.height / 4,
+                  //color: Colors.green,
+                  child: PageView(
+                    controller: _pageController,
                     children: [
-                      Text(
-                        'SERVICES',
-                        style: kHeadingStyle,
+                      HomeImageCarousel(
+                        img: 'scroll5',
+                      ),
+                      HomeImageCarousel(
+                        img: 'scroll1',
+                      ),
+                      HomeImageCarousel(
+                        img: 'scroll4',
+                      ),
+                      HomeImageCarousel(
+                        img: 'scroll3',
+                      ),
+                      HomeImageCarousel(
+                        img: 'scroll2',
                       ),
                     ],
+                    onPageChanged: (value) => {setCurrentPage(value)},
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    ServiceCards(
-                      iconName: 'hairDresser',
-                      serviceName: 'Classic',
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      5,
+                      (index) => GetIndicator(
+                        pageNo: index,
+                        cPageNo: currentPage,
+                      ),
                     ),
-                    ServiceCards(
-                      iconName: 'facialTreatment',
-                      serviceName: 'Facial',
-                    ),
-                    ServiceCards(
-                      iconName: 'faceMask',
-                      serviceName: 'De Tan',
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    ServiceCards(
-                      iconName: 'massageBack',
-                      serviceName: 'Body Massage',
-                    ),
-                    ServiceCards(
-                      iconName: 'footSpa',
-                      serviceName: 'Pedicure',
-                    ),
-                    ServiceCards(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Services()));
-                      },
-                      iconName: 'massageHead',
-                      serviceName: 'More',
-                    ),
-                  ],
+                  ),
                 ),
               ],
             ),
           ),
-          OffersCarousel(),
-          GuidelinesBar(),
-          Divider(
-            height: 50,
-            color: Colors.black,
-            thickness: 2,
-            indent: 150,
-            endIndent: 150,
-          ),
-          Text(
-            'Beauty Anytime, Anywhere',
-            style: TextStyle(
-              fontFamily: 'autobio',
-              fontSize: 28,
-              fontWeight: FontWeight.w600,
+          SliverList(
+              delegate: SliverChildListDelegate([
+            Container(
+              child: Text(
+                'Services',
+                style: kHeadingStyle,
+              ),
+              margin: EdgeInsets.symmetric(horizontal: 10),
             ),
-            textAlign: TextAlign.center,
-          )
+          ])),
+          SliverGrid(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                HomeService service = serviceTab[index];
+                return InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => service.onPress),
+                  ),
+                  child: Container(
+                    margin: EdgeInsets.all(8),
+                    width: MediaQuery.of(context).size.width / 4,
+                    height: MediaQuery.of(context).size.height / 9,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        kBoxShadow,
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Image(
+                          height: 60.0,
+                          image: AssetImage(service.img),
+                        ),
+                        Text(
+                          service.title,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              childCount: 6,
+            ),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 3,
+              crossAxisSpacing: 3,
+              childAspectRatio: 1,
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                OffersCarousel(),
+                GuidelinesBar(),
+                Divider(
+                  height: 40,
+                  color: Colors.black,
+                  thickness: 1,
+                  indent: 150,
+                  endIndent: 150,
+                ),
+                Text(
+                  'Bring the Home Salon',
+                  style: TextStyle(
+                    fontFamily: 'autobio',
+                    fontSize: 28,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       drawer: SideDrawer(),
-      bottomNavigationBar: NavigationBar(),
     );
   }
 

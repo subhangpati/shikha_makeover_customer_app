@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shikha_makeover_customer_app/model/service_model.dart';
-import 'package:shikha_makeover_customer_app/packages/ClassicPackage.dart';
-import 'package:shikha_makeover_customer_app/screens/HomePage.dart';
+import 'package:shikha_makeover_customer_app/screens/Cart.dart';
 
 class Services extends StatefulWidget {
   @override
@@ -33,7 +32,10 @@ class _ServicesState extends State<Services> {
               icon: Icon(
                 Icons.shopping_cart,
               ),
-              onPressed: null,
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Cart()));
+              },
             ),
           ],
         ),

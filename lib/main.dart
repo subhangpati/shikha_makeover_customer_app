@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'screens/Onboarding.dart';
 import 'dart:async';
-//import 'package:shikha_makeover_customer_app/packages/ClassicPackage.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    precacheImage(AssetImage('asset/images/Wallpapers/Opening.jpg'), context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Shikha Makerover',
@@ -64,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   Text(
-                    'Shikha Makeovers',
+                    'Shikha Makeover',
                     style: TextStyle(
                       fontFamily: 'inter',
                       fontSize: 37,

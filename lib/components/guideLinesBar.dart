@@ -5,29 +5,29 @@ class GuidelinesBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 10),
-      height: 120,
-      color: Colors.orange,
+      height: MediaQuery.of(context).size.height / 9,
+      color: Color(0xffF3D8E5),
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
           GuidelinesCard(
-            img: 'GenuineProducts',
+            img: 'asset/images/icons/LowerGuideline/GenuineProducts.png',
             title: 'Genuine Products',
           ),
           GuidelinesCard(
-            img: 'BestHomeSalon',
+            img: 'asset/images/icons/LowerGuideline/BestHomeSalon.png',
             title: 'Best Home Salon',
           ),
           GuidelinesCard(
-            img: 'SecurePayments',
+            img: 'asset/images/icons/LowerGuideline/SecurePayments.png',
             title: 'Secure Payments',
           ),
           GuidelinesCard(
-            img: 'Professionals',
+            img: 'asset/images/icons/LowerGuideline/Professionals.png',
             title: 'Professionals',
           ),
           GuidelinesCard(
-            img: 'EasyToUse',
+            img: 'asset/images/icons/LowerGuideline/EasyToUse.png',
             title: 'Easy to Use',
           ),
         ],
@@ -43,8 +43,8 @@ class GuidelinesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
-      width: 120,
+      height: MediaQuery.of(context).size.height / 3,
+      width: MediaQuery.of(context).size.width / 3,
       margin: EdgeInsets.symmetric(horizontal: 10),
       child: Center(
         child: Column(
@@ -53,11 +53,12 @@ class GuidelinesCard extends StatelessWidget {
             Container(
               height: 60,
               child: Image(
-                image: AssetImage('asset/images/icons/LowerGuideline/$img.png'),
+                image: AssetImage(img),
               ),
             ),
             Text(
               '$title',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: 'inter',
                 fontWeight: FontWeight.w500,

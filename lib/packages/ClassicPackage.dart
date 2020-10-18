@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shikha_makeover_customer_app/package_model/classic_model.dart';
 import 'package:shikha_makeover_customer_app/screens/DateNTime.dart';
+import 'package:shikha_makeover_customer_app/screens/Cart.dart';
 
 class ClassicPackage extends StatefulWidget {
   @override
@@ -30,7 +31,10 @@ class _ClassicPackageState extends State<ClassicPackage> {
             icon: Icon(
               Icons.shopping_cart,
             ),
-            onPressed: null,
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Cart()));
+            },
           ),
         ],
       ),

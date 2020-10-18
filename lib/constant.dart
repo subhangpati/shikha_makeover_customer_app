@@ -7,13 +7,13 @@ LinearGradient kGradientStyle = LinearGradient(
 );
 
 BoxShadow kBoxShadow = BoxShadow(
-  blurRadius: 10.0,
+  blurRadius: 6.0,
   color: Colors.black26,
-  offset: Offset(5.0, 5.0),
+  offset: Offset(4.0, 4.0),
 );
 
 TextStyle kHeadingStyle = TextStyle(
-  fontSize: 18,
+  fontSize: 20,
   fontFamily: 'inter',
   fontWeight: FontWeight.w600,
 );

@@ -6,10 +6,10 @@ class OffersCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
-      color: Colors.cyan,
+      height: MediaQuery.of(context).size.height / 3,
       margin: EdgeInsets.only(top: 20.0),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -17,30 +17,37 @@ class OffersCarousel extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'OFFERS FOR YOU',
+                  'Offers For You',
                   style: kHeadingStyle,
                 ),
                 InkWell(
                   onTap: () {},
-                  child: Text(
-                    'View All',
-                    style: TextStyle(fontSize: 15),
+                  child: Row(
+                    children: [
+                      Text(
+                        'View All',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 15,
+                      )
+                    ],
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: Colors.black26,
-            height: 200,
+            height: MediaQuery.of(context).size.height / 4,
             child: ListView.builder(
               itemCount: 4,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, index) {
                 Offer offer = offers[index];
                 return Container(
-                  width: 180,
-                  height: 200,
+                  width: MediaQuery.of(context).size.height / 5,
+                  height: MediaQuery.of(context).size.height / 4,
                   margin: EdgeInsets.symmetric(horizontal: 6),
                   child: Stack(
                     children: [
@@ -53,41 +60,52 @@ class OffersCarousel extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                height: 110,
-                                child: Image(
-                                  image: AssetImage(offer.imgUrl),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Text(
-                                  offer.title,
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w500,
+                              Expanded(
+                                child: Container(
+                                  child: Image(
+                                    image: AssetImage(offer.imgUrl),
                                   ),
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      '60 Min',
-                                      style: TextStyle(fontSize: 15.0),
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Text(
+                                            offer.title,
+                                            style: TextStyle(
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      '₹ 470',
-                                      style: TextStyle(fontSize: 15.0),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            '60 Min',
+                                            style: TextStyle(fontSize: 15.0),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            '₹ 470',
+                                            style: TextStyle(fontSize: 15.0),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               )
                             ],
                           ),

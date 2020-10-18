@@ -12,7 +12,7 @@ class OnBoardPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 200,
+          height: MediaQuery.of(context).size.height / 6,
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(50),
           decoration: BoxDecoration(
