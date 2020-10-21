@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shikha_makeover_customer_app/screens/Appointment.dart';
 import 'package:shikha_makeover_customer_app/screens/HomePage.dart';
 import 'package:shikha_makeover_customer_app/screens/Profile.dart';
@@ -46,19 +47,31 @@ class _LandingPageState extends State<LandingPage> {
           currentIndex: _currentTab,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(
+                FontAwesomeIcons.home,
+                size: 22,
+              ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.av_timer),
+              icon: Icon(
+                FontAwesomeIcons.toolbox,
+                size: 22,
+              ),
               label: 'service',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today),
+              icon: Icon(
+                FontAwesomeIcons.calendarCheck,
+                size: 22,
+              ),
               label: 'Appointment',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
+              icon: Icon(
+                FontAwesomeIcons.userAlt,
+                size: 22,
+              ),
               label: 'Profile',
             ),
           ],

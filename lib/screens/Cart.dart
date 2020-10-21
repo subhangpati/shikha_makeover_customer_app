@@ -143,8 +143,8 @@ class _CartState extends State<Cart> {
                                         children: [
                                           ClipOval(
                                             child: Material(
-                                              color:
-                                                  Colors.blue, // button color
+                                              color: Color(
+                                                  0xffff7d85), // button color
                                               child: InkWell(
                                                 splashColor:
                                                     Colors.red, // inkwell color
@@ -168,8 +168,8 @@ class _CartState extends State<Cart> {
                                           ),
                                           ClipOval(
                                             child: Material(
-                                              color:
-                                                  Colors.blue, // button color
+                                              color: Color(
+                                                  0xffff7d85), // button color
                                               child: InkWell(
                                                 splashColor:
                                                     Colors.red, // inkwell color
@@ -271,7 +271,7 @@ class _CartState extends State<Cart> {
                       },
                       child: Container(
                         height: 60,
-                        color: Colors.red,
+                        color: Color(0xffff7d85),
                         child: Center(
                             child: Text(
                           'ADD MORE',
@@ -291,7 +291,7 @@ class _CartState extends State<Cart> {
                       },
                       child: Container(
                           height: 60,
-                          color: Colors.purple,
+                          color: Colors.blueAccent,
                           child: Center(
                             child: Text(
                               'SELECT ADDRESS',

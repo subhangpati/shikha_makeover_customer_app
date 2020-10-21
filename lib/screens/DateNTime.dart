@@ -1,6 +1,7 @@
 import 'package:day_night_time_picker/lib/daynight_timepicker.dart';
 import 'package:flutter/material.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shikha_makeover_customer_app/screens/Cart.dart';
 
 DateTime selectedDate = DateTime.now();
@@ -42,7 +43,8 @@ class _DateAndTimeState extends State<DateAndTime> {
           actions: [
             IconButton(
               icon: Icon(
-                Icons.shopping_cart,
+                FontAwesomeIcons.shoppingBag,
+                color: Colors.black54,
               ),
               onPressed: () {
                 Navigator.push(

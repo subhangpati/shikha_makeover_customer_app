@@ -10,6 +10,7 @@ import 'package:shikha_makeover_customer_app/components/offersCarousel.dart';
 import 'package:shikha_makeover_customer_app/model/home_service_model.dart';
 
 import 'package:shikha_makeover_customer_app/constant.dart';
+import 'package:shikha_makeover_customer_app/screens/Cart.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -43,23 +44,19 @@ class _homePageState extends State<homePage> {
           SliverAppBar(
             floating: true,
             title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.asset(
                   'asset/images/Logo/LogoAndMonolog/SM.png',
                   scale: 6,
                 ),
-                Text(
-                  'Shikha Makeover',
-                  style: TextStyle(fontFamily: 'inter'),
-                )
               ],
             ),
             actions: [
               IconButton(
                 icon: Icon(
                   FontAwesomeIcons.search,
-                  color: Colors.black,
+                  color: Colors.black54,
                   size: 20,
                 ),
                 onPressed: null,
@@ -67,9 +64,10 @@ class _homePageState extends State<homePage> {
               IconButton(
                 icon: Icon(
                   FontAwesomeIcons.shoppingBag,
-                  color: Colors.black,
+                  color: Colors.black54,
                 ),
-                onPressed: null,
+                onPressed: () => Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Cart())),
               ),
             ],
           ),

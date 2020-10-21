@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:shikha_makeover_customer_app/screens/Payment.dart';
 
 class Address extends StatefulWidget {
@@ -45,7 +47,7 @@ class _AddressState extends State<Address> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              color: Colors.grey,
+              // color: Colors.grey,
               padding: EdgeInsets.all(18),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,14 +87,13 @@ class _AddressState extends State<Address> {
                       minWidth: 300,
                       height: 45,
                       child: RaisedButton(
-                        child: Text('CHANGE OR ADD ADDRESS'),
-                        onPressed: () {},
-                      ),
+                          child: Text('CHANGE OR ADD ADDRESS'),
+                          onPressed: () {}),
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 50),
-                    color: Colors.green,
+                    //color: Colors.green,
                     padding: EdgeInsets.all(15),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

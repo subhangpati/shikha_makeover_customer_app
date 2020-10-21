@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shikha_makeover_customer_app/model/service_model.dart';
 import 'package:shikha_makeover_customer_app/screens/Cart.dart';
 
@@ -18,7 +19,10 @@ class _ServicesState extends State<Services> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: InkWell(
-            child: Icon(Icons.arrow_back_ios),
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black54,
+            ),
             onTap: () => Navigator.pop(context),
           ),
           title: Text(
@@ -30,7 +34,8 @@ class _ServicesState extends State<Services> {
           actions: [
             IconButton(
               icon: Icon(
-                Icons.shopping_cart,
+                FontAwesomeIcons.shoppingBag,
+                color: Colors.black54,
               ),
               onPressed: () {
                 Navigator.push(
@@ -50,7 +55,7 @@ class _ServicesState extends State<Services> {
                 MaterialPageRoute(builder: (context) => service.onPress),
               ),
               child: Container(
-                height: 120,
+                height: MediaQuery.of(context).size.height / 7,
                 width: MediaQuery.of(context).size.width,
                 margin: EdgeInsets.symmetric(horizontal: 6),
                 child: Card(
@@ -62,33 +67,39 @@ class _ServicesState extends State<Services> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              service.title,
-                              style: TextStyle(
-                                fontFamily: 'inter',
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                service.title,
+                                style: TextStyle(
+                                  fontFamily: 'inter',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            ),
-                            Text(
-                              service.subText,
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'inter',
-                                color: Colors.black45,
+                              Text(
+                                service.subText,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'inter',
+                                  color: Colors.black45,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      Image(
-                        image: AssetImage(service.imgUrl),
+                      Expanded(
+                        flex: 2,
+                        child: Image(
+                          image: AssetImage(service.imgUrl),
+                        ),
                       )
                     ],
                   ),

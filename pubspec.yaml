@@ -31,6 +31,7 @@ dependencies:
   font_awesome_flutter: ^8.8.1
   date_picker_timeline: ^1.2.1
   intl: ^0.16.1
+  rflutter_alert: ^1.1.0
   day_night_time_picker:
 
 dev_dependencies:
@@ -54,6 +55,7 @@ flutter:
     - asset/images/icons/NavigationBar/Outline/.
     - asset/images/icons/OpeningSlides/.
     - asset/images/icons/Services/.
+    - asset/images/icons/SaftyMeasures/.
     - asset/images/Images/AboutUs/.
     - asset/images/Images/OffersforYou/.
     - asset/images/Images/Services/.
@@ -66,6 +68,7 @@ flutter:
     - asset/images/Wallpapers/.
     - asset/images/.
     - asset/images/icons/LowerGuideline/.
+    - asset/images/icons/.
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

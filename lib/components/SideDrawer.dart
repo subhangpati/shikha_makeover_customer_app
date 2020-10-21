@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shikha_makeover_customer_app/screens/AboutUs.dart';
+import 'package:shikha_makeover_customer_app/screens/Appointment.dart';
+import 'package:shikha_makeover_customer_app/screens/SafetyMeasures.dart';
+import 'package:shikha_makeover_customer_app/screens/Services.dart';
 
 class SideDrawer extends StatelessWidget {
   const SideDrawer({
@@ -49,6 +53,8 @@ class SideDrawer extends StatelessWidget {
                     leading: Icon(
                       Icons.calendar_today,
                     ),
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Appointment())),
                     title: Text(
                       'My Appointment',
                       style: TextStyle(
@@ -57,6 +63,8 @@ class SideDrawer extends StatelessWidget {
                     ),
                   ),
                   ListTile(
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Services())),
                     leading: Icon(
                       Icons.touch_app,
                     ),
@@ -68,6 +76,8 @@ class SideDrawer extends StatelessWidget {
                     ),
                   ),
                   ListTile(
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AboutUs())),
                     leading: Icon(
                       Icons.supervised_user_circle,
                     ),
@@ -101,6 +111,10 @@ class SideDrawer extends StatelessWidget {
                     ),
                   ),
                   ListTile(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SafetyMeasures())),
                     leading: Icon(
                       Icons.airline_seat_individual_suite,
                     ),

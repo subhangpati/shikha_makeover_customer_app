@@ -6,8 +6,6 @@ import 'package:shikha_makeover_customer_app/screens/SignUpPage.dart';
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    precacheImage(
-        AssetImage('asset/images/Wallpapers/LoginAndSignUp.jpg'), context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: loginPage(),
@@ -21,6 +19,20 @@ class loginPage extends StatefulWidget {
 }
 
 class _loginPageState extends State<loginPage> {
+  Image bgImage;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    bgImage = Image.asset('asset/images/Wallpapers/LoginAndSignUp.jpg');
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(bgImage.image, context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +42,7 @@ class _loginPageState extends State<loginPage> {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('asset/images/Wallpapers/LoginAndSignUp.jpg'),
+            image: bgImage.image,
             fit: BoxFit.fitHeight,
           ),
         ),
@@ -150,6 +162,7 @@ class _loginPageState extends State<loginPage> {
                       children: [
                         Expanded(
                           child: Container(
+                            width: MediaQuery.of(context).size.width / 3,
                             height: 1,
                             color: Colors.grey,
                           ),
@@ -162,6 +175,7 @@ class _loginPageState extends State<loginPage> {
                         ),
                         Expanded(
                           child: Container(
+                            width: MediaQuery.of(context).size.width / 3,
                             height: 1,
                             color: Colors.grey,
                           ),
@@ -177,13 +191,6 @@ class _loginPageState extends State<loginPage> {
                         Container(
                           height: 60,
                           width: 60,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 0.5,
-                            ),
-                          ),
                           child: Container(
                             decoration: BoxDecoration(
                                 image: DecorationImage(
@@ -197,13 +204,6 @@ class _loginPageState extends State<loginPage> {
                         Container(
                           height: 60,
                           width: 60,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 0.5,
-                            ),
-                          ),
                           child: Container(
                             decoration: BoxDecoration(
                                 image: DecorationImage(

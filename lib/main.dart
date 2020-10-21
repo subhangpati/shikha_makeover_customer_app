@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text(
                     'Professional Makeup',
                     style: TextStyle(
-                      color: Colors.white70,
+                      color: Colors.white,
                       fontSize: 17,
                       letterSpacing: 7,
                     ),
@@ -89,6 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       color: Colors.black45,
+                      fontSize: 17,
                     ),
                   ),
                 ],

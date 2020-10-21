@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shikha_makeover_customer_app/package_model/classic_model.dart';
 import 'package:shikha_makeover_customer_app/screens/DateNTime.dart';
 import 'package:shikha_makeover_customer_app/screens/Cart.dart';
@@ -14,10 +15,13 @@ class _ClassicPackageState extends State<ClassicPackage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.grey),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xffFFFAFA),
         elevation: 0,
         leading: InkWell(
-          child: Icon(Icons.arrow_back_ios),
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black54,
+          ),
           onTap: () => Navigator.pop(context),
         ),
         title: Text(
@@ -29,7 +33,8 @@ class _ClassicPackageState extends State<ClassicPackage> {
         actions: [
           IconButton(
             icon: Icon(
-              Icons.shopping_cart,
+              FontAwesomeIcons.shoppingBag,
+              color: Colors.black54,
             ),
             onPressed: () {
               Navigator.push(
@@ -42,6 +47,7 @@ class _ClassicPackageState extends State<ClassicPackage> {
         alignment: AlignmentDirectional.bottomEnd,
         children: [
           Container(
+            color: Color(0xffFFFAFA),
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             child: ListView.builder(
@@ -50,7 +56,7 @@ class _ClassicPackageState extends State<ClassicPackage> {
               itemBuilder: (BuildContext context, index) {
                 ClassicModel classicModel = classicPackageDate[index];
                 return Container(
-                  height: 250,
+                  height: MediaQuery.of(context).size.height / 3,
                   width: MediaQuery.of(context).size.width,
                   margin: EdgeInsets.all(8),
                   child: Card(
@@ -63,98 +69,107 @@ class _ClassicPackageState extends State<ClassicPackage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            height: 110,
-                            width: MediaQuery.of(context).size.width,
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: 120,
-                                  child: Image(
-                                    image: AssetImage(classicModel.img),
-                                  ),
-                                ),
-                                Container(
-                                  width: 160,
-                                  padding: EdgeInsets.only(
-                                      top: 10, left: 10, bottom: 10, right: 20),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        classicModel.title,
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w800,
-                                          fontFamily: 'inter',
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            '₹ ${classicModel.currentPrice}',
-                                            style: TextStyle(fontSize: 15),
-                                          ),
-                                          Text(
-                                            '₹ ${classicModel.previousPrice}',
-                                            style: TextStyle(
-                                                color: Colors.red,
-                                                fontSize: 15,
-                                                decoration:
-                                                    TextDecoration.lineThrough),
-                                          )
-                                        ],
-                                      ),
-                                      Text('${classicModel.time} min'),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  child: RaisedButton(
-                                    color: Colors.white,
-                                    textColor: Colors.red,
-                                    onPressed: () {},
-                                    child: Text('Add'),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
-                                      side: BorderSide(color: Colors.red),
+                          Expanded(
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 3,
+                                    child: Image(
+                                      image: AssetImage(classicModel.img),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width / 3,
+                                    padding: EdgeInsets.only(
+                                        top: 10,
+                                        left: 10,
+                                        bottom: 10,
+                                        right: 20),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          classicModel.title,
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w800,
+                                            fontFamily: 'inter',
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              '₹ ${classicModel.currentPrice}',
+                                              style: TextStyle(fontSize: 15),
+                                            ),
+                                            Text(
+                                              '₹ ${classicModel.previousPrice}',
+                                              style: TextStyle(
+                                                  color: Colors.red,
+                                                  fontSize: 15,
+                                                  decoration: TextDecoration
+                                                      .lineThrough),
+                                            )
+                                          ],
+                                        ),
+                                        Text('${classicModel.time} min'),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    child: RaisedButton(
+                                      color: Colors.white,
+                                      textColor: Colors.red,
+                                      onPressed: () {},
+                                      child: Text('Add'),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                        side: BorderSide(color: Colors.red),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           // second half of card
-                          Container(
-                            height: 110,
-                            width: 280,
-                            padding: EdgeInsets.all(8),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Package Details',
-                                  style: TextStyle(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  classicModel.details,
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: 'inter',
-                                    height: 1.3,
+                          Expanded(
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              padding: EdgeInsets.all(8),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    'Package Details',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w700),
                                   ),
-                                )
-                              ],
+                                  // SizedBox(
+                                  //   height: 10,
+                                  // ),
+                                  Text(
+                                    classicModel.details,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontFamily: 'inter',
+                                      height: 1.3,
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ],
