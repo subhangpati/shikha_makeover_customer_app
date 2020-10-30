@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shikha_makeover_customer_app/screens/LandingPage.dart';
 import 'screens/Onboarding.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
@@ -106,6 +107,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void openOnBoard() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => Onboarding()));
+        context, MaterialPageRoute(builder: (context) => LandingPage()));
   }
 }
