@@ -92,7 +92,10 @@ class _ClassicPackageState extends State<ClassicPackage> {
             print('The number of documents are ${snapshot.data.docs.length}');
             return buildList(context, snapshot.data.docs);
           }
-          return CircularProgressIndicator();
+          return SizedBox(
+            height: 100,
+            width: 100,
+              child: CircularProgressIndicator());
         });
   }
 
@@ -107,7 +110,6 @@ class _ClassicPackageState extends State<ClassicPackage> {
     final Data = GetData.fromSnapshot(data);
     return Padding(
         padding: EdgeInsets.symmetric(vertical: 8.0),
-        key: ValueKey(Data.title),
         child: PackageListTile(Data: Data));
   }
 }

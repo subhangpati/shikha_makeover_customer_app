@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:shikha_makeover_customer_app/model/GetDataClassic.dart';
 
@@ -10,6 +9,7 @@ class PackageListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: ValueKey(Data.title),
       height: MediaQuery.of(context).size.height / 3,
       width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.all(8),
